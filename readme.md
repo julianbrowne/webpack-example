@@ -39,7 +39,7 @@ Although you wouldn't necessarily use the approach in real life, there are two b
 
 ### Installation
 
-Grab this repository. Make sure you have node and nom installed.
+Grab this repository. Make sure you have node and npm installed.
 
 `npm install` 
 
@@ -47,7 +47,7 @@ Will fetch all the node gubbins for running webpack into `node_modules`
 
 `webpack`
 
-Runs the build process. Moves `index.html` from `src` to `dist` and builds the `production.js` dependency. Then moves `test.html` from `src` to `dist` and builds `test.js` and copies the Jasmine libraries in `src/lib` to `src/dist`
+Runs the build process. Cleans the `dist` folder out of all files. Moves `index.html` from `src` to `dist` and builds the `production.js` dependency. Then moves `test.html` from `src` to `dist` and builds `test.js` and copies the Jasmine libraries in `src/lib` to `src/dist`
 
 To run use just open `dist/index.html` in a browser and the word "production" will be displayed. Open `dist/test.html` and the Jasmine tests should run and pass. The source of all files is deliberately straightforward to follow.
 
