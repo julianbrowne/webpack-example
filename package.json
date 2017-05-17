@@ -1,0 +1,21 @@
+{
+  "name": "webpack",
+  "description": "Really simple webpack set up with jasmine mocked dependency",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/julianbrowne/webpack-example",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julianbrowne/webpack-example.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Julian Browne",
+  "dependencies": {
+    "babel-register": "6.24.1",
+    "clean-webpack-plugin": "0.1.16",
+    "copy-webpack-plugin": "4.0.1",
+    "file-loader": "0.11.1",
+    "webpack": "2.5.1"
+  }
+}
