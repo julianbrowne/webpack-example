@@ -28,12 +28,19 @@ Things this build does:
 
 *	Mock out a dependency so the business logic can be tested in isolation  
 
-Yes, it's all a bit artificial. The point is to represent something close to a real world environment
-Where there would be business functionality (`business.js`) that has dependencies (`dependency.js`) that needs to be built for production use into a useable library (`production.js`).  
+Yes, it's all a bit artificial. The point is to represent something close to a real world environment where there would be business functionality (`business.js`) that has dependencies (`dependency.js`) that needs to be built for production use into a useable library (`production.js`).  
 
-The `index.html` that uses `production.js` additionally access it from the global (`window`) space, which represents something like a JQuery library where you'd access everything from `$`.
+**"Production Environment"**  
 
-In the test pipeline, we want to mock out `dependency.js` and test `business.js` in isolation. So the build process creates a `test.js` with some simple Jasmine tests. `business.js` and `dependency.js` are imported and then `dependency.js` is mocked out. You can think of this a bit like the typical situation where a dependency accesses a config file on disk (in production) but you want to intercept the call to it from the business logic and force the return of some known test configuration data that can be asserted against.
+The `index.html` that uses `production.js` additionally access it from the global (`window`) space, by calling `business()`, which represents something like a JQuery library where you'd access everything from `$`.
+
+**"Test Environment"**  
+
+In the test pipeline, we want to mock out `dependency.js` and test `business.js` in isolation. So the build process creates `test.js` containing some simple Jasmine tests.
+
+The test basically involves importing `business.js` and `dependency.js` and mocking `dependency.js`.
+
+You can think of this a bit like the typical situation where a dependency accesses a config file on disk (in production) but you want to intercept the call to it from the business logic under test conditions and force the return of some known test configuration data that can be asserted against.
 
 Although you wouldn't necessarily use the approach in real life, there are two build files: `indexProduction.js` and `indexTest.js`. They are referred to as the inputs from the webpack config file and list the dependencies needed for the build as described above.
 
